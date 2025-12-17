@@ -22,6 +22,9 @@ export interface Product {
     colors?: string[];
     features?: string[];
     reviewsList?: Review[];
+    sku?: string;
+    stock?: number;
+    status?: 'Active' | 'Draft' | 'Low Stock' | 'Out of Stock';
 }
 
 export interface Category {
@@ -45,8 +48,8 @@ const PRODUCTS: Product[] = [
         image: 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&q=80&w=500',
         images: [
             'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&q=80&w=500',
-             'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&q=80&w=500',
-             'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&q=80&w=500'
+            'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&q=80&w=500',
+            'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&q=80&w=500'
         ],
         category: 'Electronics',
         rating: 4.8,

@@ -65,11 +65,11 @@ export const authOptions: NextAuthOptions = {
                 if (!existingUser) {
                     // Create new user
                     await UserModel.create({
-                        name: user.name,
-                        email: user.email,
+                        name: user.name || 'User',
+                        email: user.email!,
                         googleId: account.providerAccountId,
                         role: "user",
-                        avatar: user.image,
+                        avatar: user.image || undefined,
                     });
                 } else if (!existingUser.googleId) {
                     // Link Google account to existing email user if not already linked
@@ -77,7 +77,7 @@ export const authOptions: NextAuthOptions = {
                     // Ideally we should prompt, but auto-linking is common if email is verified.
                     // For now, let's just update the googleId if missing.
                     existingUser.googleId = account.providerAccountId;
-                    if (!existingUser.avatar) existingUser.avatar = user.image;
+                    if (!existingUser.avatar) existingUser.avatar = user.image || undefined;
                     await existingUser.save();
                 }
             }

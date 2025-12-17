@@ -41,7 +41,17 @@ const CategorySchema = new Schema<Category>({
 });
 
 // User Schema
-const UserSchema = new Schema({
+export interface IUser {
+    name: string;
+    email: string;
+    password?: string;
+    googleId?: string;
+    role: 'user' | 'admin';
+    avatar?: string;
+    _id?: string;
+}
+
+const UserSchema = new Schema<IUser>({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: false }, // Optional for Google users
@@ -64,4 +74,4 @@ if (mongoose.models.User) {
 
 export const ProductModel = model('Product', ProductSchema);
 export const CategoryModel = model('Category', CategorySchema);
-export const UserModel = model('User', UserSchema);
+export const UserModel = model<IUser>('User', UserSchema);

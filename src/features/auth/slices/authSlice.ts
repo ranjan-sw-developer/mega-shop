@@ -8,6 +8,7 @@ interface AuthState {
     user: User | null;
     isLoading: boolean;
     error: string | null;
+    token: string | null;
 }
 
 const initialState: AuthState = {
@@ -16,6 +17,7 @@ const initialState: AuthState = {
     user: null,
     isLoading: false,
     error: null,
+    token: null,
 };
 
 // Async Thunks
