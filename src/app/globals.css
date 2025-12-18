@@ -29,6 +29,10 @@ body {
   font-family: var(--font-sans);
 }
 
+button {
+  cursor: pointer;
+}
+
 /* Utilities for hiding scrollbar if needed */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
